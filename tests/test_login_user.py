@@ -9,7 +9,7 @@ class TestLoginUser:
     @allure.description('Логин под существующим пользователем')
     def test_login_user(self):
         response = requests.post(Urls.LOGIN, data=UserData.data_correct)
-        assert response.status_code == 200
+        assert response.status_code == 200 and response.json()["success"] is True
 
     @allure.title('Логин пользователя')
     @allure.description('Логин с неверным логином и паролем')

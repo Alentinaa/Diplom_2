@@ -10,7 +10,7 @@ class TestCreateUser:
     @allure.description('Создание уникального пользователя')
     def test_create_new_user_is_correct(self):
         response = requests.post(Urls.CREATE_USER, data=UserData.create_random_user())
-        assert response.status_code == 200
+        assert response.status_code == 200 and response.json()["success"] is True
 
     @allure.title('Создание пользователя')
     @allure.description('Создание пользователя, который уже зарегистрирован')
